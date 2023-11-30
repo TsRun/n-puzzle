@@ -1,17 +1,16 @@
 import numpy as np
 from Heuristique import choose_heuristic
-from global_variable import SIZE
 
 class Taquin:
     """
     Taquin class
     """
 
-    def __init__(self, previous_distance:int, previous:list, matrix:np.ndarray):
+    def __init__(self, previous_distance:int, previous:list, matrix:np.ndarray, SIZE:int, GOAL:np.ndarray):
         self.matrix = matrix
         self.previous_distance = previous_distance
         self.previous = previous
-        self.heuristic = self.calcul_heuristic()
+        self.heuristic = self.calcul_heuristic(SIZE, GOAL)
         self.sum = self.heuristic + self.previous_distance
         self.id = hash(str(matrix))
 
@@ -29,10 +28,10 @@ class Taquin:
         else:
             return super().__eq__(other)
 
-    def calcul_heuristic(self):
-        return choose_heuristic(self.matrix)
+    def calcul_heuristic(self, SIZE:int, GOAL:np.ndarray) -> int:
+        return choose_heuristic(self.matrix, SIZE, GOAL)
 
-    def get_possible_moves(self) -> list:
+    def get_possible_moves(self, SIZE:int) -> list:
         """
         Get the possible moves from the current state
         """

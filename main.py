@@ -1,9 +1,7 @@
 import numpy as np
 from sys import argv
 from Algorythm import algorythm
-from utils import print_list
-
-alreadys_id = []
+from utils import print_list, is_solvable
 
 def treating_input() -> np.ndarray:
     if len(argv) == 1:
@@ -24,14 +22,17 @@ def treating_input() -> np.ndarray:
     else:
         with open(argv[1], "r") as file:
             lines = file.readlines()
-            matrix = np.array([[int(j) for j in i.split()] for i in lines])
+            matrix = np.array([[int(j) for j in i.split()] for i in lines[1:]])
             return matrix
     return np.array()
 
 def main():
     starting = treating_input()
     assert all(i in starting for i in range(len(starting)**2)), "Error in the input"
-    print_list(algorythm(starting))
+    assert is_solvable(starting), "Puzzle not solvable"
+    SIZE = len(starting)
+    result = algorythm(starting, SIZE)
+    print_list(result[0])
 
 if __name__ == "__main__":
     main()
