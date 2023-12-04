@@ -33,6 +33,8 @@ def main():
     SIZE = len(starting)
     result = algorythm(starting, SIZE)
     print_list(result[0])
+    print(f"Complexity in time: {result[1]}")
+    print(f"Complexity in size: {result[2]}")
 
 if __name__ == "__main__":
     main()
