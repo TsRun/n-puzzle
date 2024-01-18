@@ -15,7 +15,7 @@ Ce solveur de N-Puzzle est un projet de programmation avancé développé par Ma
 - Identification des puzzles insolubles.
 
 ## Comment Utiliser
-1. Clonez ce dépôt : `git clone (https://github.com/TsRun/n-puzzle.git)`
+1. Clonez ce dépôt : `git clone https://github.com/TsRun/n-puzzle.git`
 2. Compilez le projet avec `make` dans le répertoire du projet.
 3. Exécutez le programme en utilisant `./n-puzzle [OPTIONS] [FICHIER_PUZZLE]`.
 
